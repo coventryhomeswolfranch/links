@@ -17,128 +17,139 @@
   <script src="https://kit.fontawesome.com/cc06bfdf96.js" crossorigin="anonymous"></script>
 
   <style>
-   :root{
-  --brand-red: #902828;
-  --brand-charcoal: #182028;
-  --brand-panel: #e4e8ec;   /* inner container */
-  --brand-panel-2: #d8dde2;
-  --brand-bg: #ffffff;     /* body bg */
-  --brand-soft: #2b2b2b;
-  --brand-tan: #908058;
-  --brand-white: #000000;
-  --brand-muted: #555555;
-}
+    :root{
+      --brand-red: #902828;
+      --brand-charcoal: #182028;
+      --brand-panel: #e4e8ec;  /* inner container */
+      --brand-panel-2: #d8dde2;
+      --brand-bg: #ffffff;     /* body bg */
+      --brand-text: #000000;
+      --brand-muted: #555555;
+      --brand-topbar: #1c252a; /* logo bar bg */
+      --brand-border: #c9cfd6;
+    }
 
-* {
-  box-sizing: border-box;
-  border-radius: 0 !important; /* 🔥 removes ALL rounded corners */
-}
+    * { box-sizing: border-box; }
 
-html, body {
-  height: 100%;
-}
+    html, body { height: 100%; }
 
-body {
-  margin: 0;
-  background: var(--brand-bg);
-  color: black;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 1.1px;
+    body {
+      margin: 0;
+      background: var(--brand-bg);
+      color: var(--brand-text);
+      font-family: "Roboto", sans-serif;
+      letter-spacing: 1.1px;
 
-  display: grid;
-  place-items: center;
-  padding: 28px 14px;
-}
+      display: grid;
+      place-items: center;
+      padding: 28px 14px;
+    }
 
-/* MAIN CARD */
-.main-container {
-  width: min(520px, 94vw);
-  background: var(--brand-panel);
-  padding: 24px;
-  text-align: center;
-  border: 1px solid #c9cfd6;
-  box-shadow: none;
-}
+    /* MAIN CARD (square corners) */
+    .main-container {
+      width: min(520px, 94vw);
+      background: var(--brand-panel);
+      padding: 24px;
+      text-align: center;
+      border: 1px solid var(--brand-border);
+      box-shadow: none;
+    }
 
-/* IMAGE AREA */
+    /* TOP LOGO BAR (square corners) */
+    .top-bar {
+      background: var(--brand-topbar);
+      padding: 18px;
+      margin: -24px -24px 18px -24px; /* stretch edge-to-edge inside container */
+    }
 
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 12px;
-}
+    .top-bar img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-/* LINK STACK */
-.links {
-  margin-top: 18px;
-  display: grid;
-  gap: 12px;
-}
+    /* LINK STACK */
+    .links {
+      margin-top: 6px;
+      display: grid;
+      gap: 12px;
+    }
 
-/* BUTTON LINKS */
-.btn-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+    /* BUTTON LINKS (FULL ROUND) */
+    .btn-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
 
-  padding: 14px;
-  background: var(--brand-charcoal);
-  color: #ffffff;
-  border: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 600;
-  font-size: 14px;
+      padding: 14px 22px;
+      background: var(--brand-charcoal);
+      color: #ffffff;
+      border: none;
+      text-decoration: none;
 
-  transition: background 120ms ease;
-}
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-size: 14px;
 
-.btn-link:hover {
-  background: var(--brand-red);
-}
+      border-radius: 999px; /* ✅ pill corners */
+      transition: background 120ms ease, transform 120ms ease;
+    }
 
-/* CONTACTS */
-.contact-section {
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid #c9cfd6;
-  display: grid;
-  gap: 16px;
-}
+    .btn-link:hover {
+      background: var(--brand-red);
+      transform: translateY(-1px);
+    }
 
-.contact-card {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #333;
-}
+    .btn-link:active {
+      transform: translateY(0);
+    }
 
-.contact-card strong {
-  color: #000;
-  letter-spacing: 1.4px;
-}
+    /* CONTACTS */
+    .contact-section {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--brand-border);
+      display: grid;
+      gap: 16px;
+      text-align: center;
+    }
 
-.contact-card a {
-  color: #182028;
-  text-decoration: none;
-}
+    .contact-card {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
 
-.contact-card a:hover {
-  color: var(--brand-red);
-}
+    .contact-card strong {
+      color: #000;
+      letter-spacing: 1.4px;
+    }
 
+    /* Keep contact links normal (not button-like) */
+    .contact-card a {
+      color: var(--brand-charcoal);
+      text-decoration: none;
+      display: inline;
+    }
 
+    .contact-card a:hover {
+      color: var(--brand-red);
+    }
   </style>
 </head>
 
 <body>
   <div class="main-container">
 
-    <!-- TOP IMAGE AREA (swap src to anything; keep layout) -->
-    <div class="hero">
-      <img src="https://static.coventryhomes.com/coventryhomes/images/coventry_homes_white.svg?v=d008ad3" alt="Coventry Homes" />
+    <!-- TOP BAR LOGO -->
+    <div class="top-bar">
+      <img
+        src="https://static.coventryhomes.com/coventryhomes/images/coventry_homes_white.svg?v=d008ad3"
+        alt="Coventry Homes"
+      />
     </div>
 
     <!-- BUTTON LINKS -->
@@ -166,7 +177,6 @@ body {
 
     <!-- CONTACTS -->
     <div class="contact-section">
-
       <div class="contact-card">
         <strong>Al Mahvelat</strong><br />
         <a href="mailto:al.mahvelat@coventryhomes.com">al.mahvelat@coventryhomes.com</a><br />
@@ -184,7 +194,6 @@ body {
         <a href="mailto:jason.morris@coventryhomes.com">jason.morris@coventryhomes.com</a><br />
         <a href="tel:15129704123">512-970-4123</a>
       </div>
-
     </div>
 
   </div>
